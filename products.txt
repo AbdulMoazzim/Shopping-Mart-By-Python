@@ -1,0 +1,4 @@
+
+Time:Wed Jan 17 22:16:28 2024  ,Name: Abdul ,Product: ,Bill: Rs. 0 
+Time:Fri Jan 19 16:25:44 2024  ,Name: Abdul ,Product: SHAMPOO  BEEF  ,Bill: Rs. 500 
+Time:Sun Feb 11 14:12:14 2024  ,Name: Ali ,Product: SHAMPOO SHOES ,Bill: Rs. 1200 
