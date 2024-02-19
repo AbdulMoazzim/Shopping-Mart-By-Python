@@ -34,7 +34,7 @@ while True:
             if username1.isdigit():
                 print('You should write an alphabet too in your username!')
                 break
-            if len(password1)==0 or len(first_name)==0 or len(last_name)==0 or len(username1)==0 or len(address)==0:
+            if len(password1) == 0 or len(first_name) == 0 or len(last_name )== 0 or len(username1) == 0 or len(address) == 0:
                 print('You should give all info!')
                 break
             if ' ' in username1:
@@ -121,7 +121,7 @@ def add_products():
     print()
     print(items_names)
     f = open('products.txt', 'a+')
-    if count == 1:  # not to write name and products again and again
+    if count1 == 1:  # not to write name and products again and again
         f.write(f'\nTime:{time.ctime()}  ,Name: {username2.capitalize()} ,Product: ')
     while True:
         products = input("Type the products you want to select, if you want to cancel,press 'E': ")
@@ -137,7 +137,7 @@ def add_products():
 
 
 def remove_products():
-    if count >= 1:
+    if count1 >= 1:
         f = open('products.txt')
         read = f.read()
         f.close()
@@ -192,7 +192,7 @@ def remove_products():
 
 
 def view_cart():
-    if count >= 1:
+    if count1 >= 1:
         f = open('products.txt')
         view = f.read()
         f.close()
@@ -204,13 +204,13 @@ def view_cart():
             if view[i] == ',Product:':
                 print('Your products in your cart,', see)
                 break
-
     else:
         print('The cart is empty, you should pick some things!')
         print()
+        
 
 def checkout(bill):
-    if count >= 1:
+    if count1 >= 1:
         f = open('products.txt')
         view = f.read()
         f.close()
@@ -246,7 +246,8 @@ def view_history():
             print(i)
 
 
-count = 0
+count1 = 0
+count2 = 0
 
 print('What are you gonna do?', username2.capitalize())
 # user input for shopping
@@ -259,25 +260,26 @@ while True:
         view_list()
     if choice == '2':
         import time
-        count += 1
+        count1 += 1
         add_products()
     if choice == '3':
         remove_products()
     if choice == '4':
         view_cart()
     if choice == '5':
+        count2 += 1
         bill = 0
         bill = checkout(bill)
     if choice == '6':
         view_history()
     if choice == '7':
         # after paying the bill, bill info is written in file
-        if count >= 1:
+         if count1 >= 1 and count2 != 0:
             f = open('products.txt', 'a+')
             f.write(f' ,Bill: Rs. {bill} ')
             f.close()
             print('Thanks for visiting Online Shopping Mart!')
             exit()
-        else:
+        if count2 == 0:
             print('Thanks for visiting Online Shopping Mart!')
             exit()
